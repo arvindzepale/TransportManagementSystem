@@ -1,0 +1,38 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<!--     <package name="default" extends="struts-default">
+        <action name="HelloWorld" class="com.tutorials4u.helloworld.HelloWorld">
+            <result name="SUCCESS">/success.jsp</result>
+        </action>
+    </package> -->
+    
+    	<package name="default" extends="hibernate-default">
+		<action name="saveOrUpdateUser" method="saveOrUpdate" class="com.tutorials4u.action.UserAction">
+			<result name="success" type="redirect">listUser</result>
+		</action>
+		<action name="listUser" method="list" class="com.tutorials4u.action.UserAction">
+			<result name="success">/register.jsp</result>
+		</action>
+		<action name="editUser" method="edit" class="com.tutorials4u.action.UserAction">
+			<result name="success">/register.jsp</result>
+		</action>
+		<action name="deleteUser" method="delete" class="com.tutorials4u.action.UserAction">
+			<result name="success" type="redirect">listUser</result>
+		</action>
+		<action name="getList" method="getlist" class="com.tutorials4u.action.UserAction">
+			<result name="success">/userList.jsp</result>
+		</action>
+	</package>
+	
+	<package name="default" extends="json-default">
+   <action name="ajaxAction" class="com.action.AjaxJsonAction">
+   <result type="json">
+        <param name="excludeNullProperties">true</param>
+        <param name="noCache">true</param>
+   </result>
+   </action>
+</package>
+</struts>

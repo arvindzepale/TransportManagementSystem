@@ -1,0 +1,5 @@
+package com.tutorials4u.bean;
+
+public class Employee {
+
+}
